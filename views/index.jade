@@ -1,0 +1,10 @@
+extends layout
+include mixins
+
+block content
+  h1= title
+  p Welcome to #{title}
+
+  ul
+      each item in messages
+          +panel(item.fromDevice.name, item.toDevice.name, item.read, item.created_at) #{item.message}

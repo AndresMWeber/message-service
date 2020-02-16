@@ -1,0 +1,37 @@
+{
+    "name": "message-iot-api",
+    "version": "0.0.0",
+    "private": true,
+    "scripts": {
+        "start": "node ./bin/www",
+        "dev": "nodemon ./bin/www"
+    },
+    "dependencies": {
+        "api-query-params": "^4.15.0",
+        "connect-mongo": "^3.2.0",
+        "cookie-parser": "~1.4.4",
+        "cors": "^2.8.5",
+        "debug": "~2.6.9",
+        "dotenv": "^8.2.0",
+        "express": "~4.16.1",
+        "express-session": "^1.17.0",
+        "http-errors": "~1.6.3",
+        "jade": "~1.11.0",
+        "mongoose": "^5.9.1",
+        "morgan": "~1.9.1"
+    },
+    "prettier": {
+        "trailingComma": "es5",
+        "tabWidth": 4,
+        "semi": false,
+        "singleQuote": true,
+        "overrides": [
+            {
+                "files": ".prettierrc",
+                "options": {
+                    "parser": "json"
+                }
+            }
+        ]
+    }
+}

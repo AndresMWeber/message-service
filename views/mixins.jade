@@ -1,0 +1,12 @@
+//- Panel mixin
+mixin panel(from, to, read, time, style)
+    - var style = (typeof style === 'undefined') ? "default" : style
+    div( class=["panel", "panel-" + style] )
+    
+
+        if (read)
+            .panel-heading= "✔️ - " + from + " ----> " + to + " at " + time
+        else
+            .panel-heading= "📧 - " + from + " ----> " + to + " at " + time
+        .panel-body
+            block
