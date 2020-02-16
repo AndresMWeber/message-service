@@ -30,6 +30,22 @@ router.get('/:id', async (req, res, next) => {
     }
 })
 
+router.get('/:id/latest', async (req, res, next) => {
+    try {
+        console.log('esdf')
+        const device = await Device.getByIdOrName(req.params.id)
+        console.log('here')
+        const latestMessage = device.messages.filter(message => !message.read)[0]
+        console.log(latestMessage)
+        latestMessage.read = true
+        latestMessage.save()
+        res.send(latestMessage.message)
+    } catch (e) {
+        console.log(e)
+        res.status(404).json({ error: 'Could not find device messages.' })
+    }
+})
+
 router.get('/:id/messages', async (req, res, next) => {
     try {
         const device = await Device.getByIdOrName(req.params.id)

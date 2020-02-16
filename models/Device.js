@@ -25,8 +25,8 @@ deviceSchema.static(
 
 deviceSchema.static('getByIdOrName', async query => {
     const device =
-        (await Device.findOne({ name: query }).populate('messages')) ||
-        (await Device.findById(query).populate('messages'))
+        (await Device.findOne({ name: query }).populate('messages').sort({'created_at': 'desc'})) ||
+        (await Device.findById(query).populate('messages').sort({'created_at': 'desc'}))
     if (!device) throw new Error()
     else return device
 })
